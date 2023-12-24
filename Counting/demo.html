@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Counting</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+</body>
+<script>
+    let count=0;
+    const sayDate = function(str){
+        console.log(count++);
+    }
+    let intervalId;
+
+   document.querySelector("#start").addEventListener("click",()=>{
+        // setInterval(sayDate, 1000, "hi");
+         intervalId = setInterval(sayDate, 1000, "hi")
+    })
+   
+
+    // const intervalId = setInterval(sayDate, 1000, "hi")
+    document.querySelector("#stop").addEventListener("click",()=>{
+        clearInterval(intervalId)
+    })
+    document.querySelector("#reset").addEventListener("click",()=>{
+        count=0;
+    })
+
+    // clearInterval(intervalId)
+</script>
+</html>
