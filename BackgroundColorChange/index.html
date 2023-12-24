@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>On clicking on start button backgroundColor will change and on clicking on stop changing effect will stop</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    
+    function randomColourGenerator()
+    {
+        const letters = '0123456789ABCDEF';
+         let color = '#';
+
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    return color;
+    }
+    // let randomColor=randomColourGenerator();
+    let intervalId;
+    function giveColour()
+    {
+        intervalId=setInterval(changeColour,1000);
+        function changeColour()
+        {
+            document.body.style.backgroundColor=randomColourGenerator();
+        }
+    }
+    function stopColour()
+    {
+        clearInterval(intervalId);
+    }
+
+    document.querySelector("#start").addEventListener("click",giveColour);
+    document.querySelector("#stop").addEventListener("click",stopColour);
+
+</script>
+</html>
